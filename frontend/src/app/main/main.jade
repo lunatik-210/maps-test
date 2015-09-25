@@ -1,0 +1,24 @@
+.container
+  div
+    acme-navbar(creationdate='main.creationDate')
+  .row
+    .large-12.large-text-center.columns
+      .panel
+        h1 'Allo, 'Allo!
+        img(src='assets/images/yeoman.png', alt="I'm Yeoman")
+        br
+        p Always a pleasure scaffolding your apps.
+        p.animated.infinite(ng-class='main.classAnimation')
+          a.button.success(href='#', ng-click='main.showToastr()') Splendid Toastr
+        p
+          | With ♥ thanks to the contributions of
+          acme-malarkey(extra-values="['Yeoman', 'Gulp', 'Angular']")
+  .row
+    .large-4.columns(ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'")
+      .th
+        img.right(ng-src='assets/images/{{ awesomeThing.logo }}', alt='{{ awesomeThing.title }}')
+        .caption
+          h3 {{ awesomeThing.title }}
+          p {{ awesomeThing.description }}
+          p
+            a(ng-href='{{ awesomeThing.url }}') {{ awesomeThing.url }}
