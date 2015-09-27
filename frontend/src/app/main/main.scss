@@ -1,9 +1,14 @@
 
 .content {
-	border: 1px double black;
+    border: 1px double black;
 }
 
 .sub-content {
-	border: 1px double red;
-	height: 100px;
+    border: 1px double red;
+}
+
+.map {
+    height: 600px;
+    width: 600px;
+    margin: 0px auto;
 }
