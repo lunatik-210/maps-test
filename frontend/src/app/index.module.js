@@ -4,7 +4,7 @@ import MainController from './main/main.controller';
 
 import './components/ymaps/ymaps.module';
 
-angular.module('frontend', ['ngAnimate', 'restangular', 'ui.router', 'mm.foundation', 'ymaps'])
+angular.module('frontend', ['ngAnimate', 'restangular', 'ui.router', 'mm.foundation', 'ngDragDrop', 'ymaps'])
   .config(config)
   .config(routerConfig)
   .controller('MainController', MainController);

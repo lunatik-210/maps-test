@@ -1,10 +1,29 @@
 
 class MainController {
-    constructor () {
+    constructor ($scope) {
         'ngInject';
 
-        this.asd = 'world 1';
-        this.locations = ['location1', 'location2', 'location3', 'location4', 'location5'];
+        this.locations = [
+            {name: 'location1'}, 
+            {name: 'location2'}, 
+            {name: 'location3'}, 
+            {name: 'location4'}, 
+            {name: 'location5'}
+        ];
+
+        this.list1 = [
+          { 'title': 'N', 'drag': true },
+          { 'title': 'L', 'drag': true },
+          { 'title': 'I', 'drag': true },
+          { 'title': 'I', 'drag': true },
+          { 'title': 'E', 'drag': true },
+          { 'title': 'N', 'drag': true }
+        ];
+
+        $scope.$watch(this.locations, () => {
+            console.log(this.locations);
+        });
+
     }
 }
 

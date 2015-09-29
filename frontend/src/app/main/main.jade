@@ -1,13 +1,21 @@
 .raw
   .columns.medium-8.medium-offset-2.content
     
-    .columns.medium-4.sub-content
+    .columns.medium-3.sub-content
       input(type='text', placeholder='Type location')
-      .raw(ng-repeat='location in main.locations').location
-        .columns.medium-11
-          .span {{location}}
-        .columns.medium-1
-          .span.remove-location-btn X
 
-    .columns.medium-8.sub-content
+      .location(ng-repeat='location in main.locations'
+        data-drop="true"
+        data-drag="true"
+        ng-model='main.locations'
+        data-jqyoui-options="{revert: 'invalid'}"
+        jqyoui-draggable="{index: {{$index}}, insertInline: true, direction:'jqyouiDirection'}"
+        jqyoui-droppable="{index: {{$index}}}"
+        data-direction="{{location.jqyouiDirection}}")
+        .raw
+            span {{location.name}} 
+            span.remove-location-btn X
+
+
+    .columns.medium-9.sub-content
       y-map
