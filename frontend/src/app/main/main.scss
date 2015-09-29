@@ -1,4 +1,6 @@
 
+@import '../components/ymaps/ymaps.scss';
+
 .content {
     border: 1px double black;
 }
@@ -7,8 +9,14 @@
     border: 1px double red;
 }
 
-.map {
-    height: 600px;
-    width: 600px;
-    margin: 0px auto;
+.location:hover {
+    opacity: 0.3;
+}
+
+.location {
+    cursor: default;
+}
+
+.remove-location-btn {
+    cursor: pointer;
 }
