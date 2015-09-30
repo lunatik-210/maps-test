@@ -16,13 +16,13 @@ class MainController {
                 return;
             }
 
-            this.locations.push({
-                name: geoObj.properties.get('name'),
-                text: geoObj.properties.get('text'),
-                coordinates: geoObj.geometry.getCoordinates()
+            this.$scope.$apply(() => {
+                this.locations.push({
+                    name: geoObj.properties.get('name'),
+                    text: geoObj.properties.get('text'),
+                    coordinates: geoObj.geometry.getCoordinates()
+                });
             });
-
-            this.$scope.$apply();
         });
         
         form.location = "";
