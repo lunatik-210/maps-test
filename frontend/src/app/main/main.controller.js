@@ -1,6 +1,6 @@
 
 class MainController {
-    constructor ($scope) {
+    constructor() {
         'ngInject';
 
         this.locations = [
@@ -10,20 +10,15 @@ class MainController {
             {name: 'location4'}, 
             {name: 'location5'}
         ];
+    }
 
-        this.list1 = [
-          { 'title': 'N', 'drag': true },
-          { 'title': 'L', 'drag': true },
-          { 'title': 'I', 'drag': true },
-          { 'title': 'I', 'drag': true },
-          { 'title': 'E', 'drag': true },
-          { 'title': 'N', 'drag': true }
-        ];
+    addMarker(form) {
+        this.locations.push({name: form.location});
+        form.location = "";
+    }
 
-        $scope.$watch(this.locations, () => {
-            console.log(this.locations);
-        });
-
+    removeMarker(index) {
+        this.locations.splice(index, 1);
     }
 }
 

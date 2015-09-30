@@ -17,9 +17,8 @@ class YMapModelService {
             this.map = new ymaps.Map("ymap", {
                 center: position,
                 zoom: 10,
-                controls: ["searchControl", "routeEditor", "zoomControl"]
+                controls: ["searchControl", "zoomControl"]
             });
-
         }, (e) => {
             console.log(e);
         });

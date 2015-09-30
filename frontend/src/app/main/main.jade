@@ -2,7 +2,7 @@
   .columns.medium-8.medium-offset-2.content
     
     .columns.medium-3.sub-content
-      input(type='text', placeholder='Type location')
+      input(type='text', placeholder='Type location' ui-keypress="{13:'main.addMarker(form)'}" ng-model="form.location")
 
       .location(ng-repeat='location in main.locations'
         data-drop="true"
@@ -14,8 +14,7 @@
         data-direction="{{location.jqyouiDirection}}")
         .raw
             span {{location.name}} 
-            span.remove-location-btn X
-
+            span.remove-location-btn(ng-click='main.removeMarker($index)') X
 
     .columns.medium-9.sub-content
       y-map
