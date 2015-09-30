@@ -1,19 +1,30 @@
 
 class MainController {
-    constructor() {
+    constructor($scope) {
         'ngInject';
 
-        this.locations = [
-            {name: 'location1'}, 
-            {name: 'location2'}, 
-            {name: 'location3'}, 
-            {name: 'location4'}, 
-            {name: 'location5'}
-        ];
+        this.locations = [];
+        this.$scope = $scope;
     }
 
     addMarker(form) {
-        this.locations.push({name: form.location});
+        ymaps.geocode(form.location).then((res) => {
+            let geoObj = res.geoObjects.get(0);
+            if(!geoObj)
+            {
+                console.log('ERR: location is not found!');
+                return;
+            }
+
+            this.locations.push({
+                name: geoObj.properties.get('name'),
+                text: geoObj.properties.get('text'),
+                coordinates: geoObj.geometry.getCoordinates()
+            });
+
+            this.$scope.$apply();
+        });
+        
         form.location = "";
     }
 
