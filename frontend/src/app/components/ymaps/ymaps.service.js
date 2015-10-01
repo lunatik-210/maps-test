@@ -44,6 +44,8 @@ class YMapModelService {
 
                         /*
                             https://toster.ru/q/195055
+                            http://webcodingsolutions.blogspot.ru/2014/07/yandex-maps-api-routes-polylines.html
+                            
                             var all_points=[];
                             var paths=route.getPaths();
                             var i=0;
