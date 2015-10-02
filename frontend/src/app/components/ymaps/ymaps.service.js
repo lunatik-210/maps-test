@@ -1,7 +1,9 @@
 
 class YMapModelService {
-    constructor() {
+    constructor($rootScope) {
         'ngInject';
+
+        this.$rootScope = $rootScope;
     }
 
     init() {
@@ -39,34 +41,8 @@ class YMapModelService {
                 route.editor.events.add('routeupdate', (event) => {
                     if(event.get('rough') === false)
                     {
-                        console.log('route updated');
-                        console.log(route.points);
-
-                        /*
-                            https://toster.ru/q/195055
-                            http://webcodingsolutions.blogspot.ru/2014/07/yandex-maps-api-routes-polylines.html
-                            
-                            var all_points=[];
-                            var paths=route.getPaths();
-                            var i=0;
-                            while(paths.get(i)!==null){
-                                var p=paths.get(i);
-                                var segments=p.getSegments();
-                                $(segments).each(function(){
-                                    var pc=this.getCoordinates();
-                                    $(pc).each(function(){
-                                        all_points.push(this);
-                                    });
-                                });
-                                i++;
-                            }
-                        */
+                        this.$rootScope.$broadcast('routeupdate', route.requestPoints);
                     }
-                });
-
-                route.editor.events.add('waypointdragend', (event) => {
-                    console.log(event.originalEvent.wayPoint.properties);
-                    console.log(event.originalEvent.wayPoint.geometry.getCoordinates());
                 });
             },
             (error) => {
